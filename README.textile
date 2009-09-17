@@ -16,16 +16,22 @@ FastImage Inline uses a simple browser detection mechanism by looking at the use
 
 h2. Examples
 
+<pre>
   inline_image_tag("bullet.gif")
+</pre>
 
 Result for request from a data-uri capable browser:
 
+<pre>
   "<img alt=\"Bullet\" src=\"data:image/gif;base64,R0lGODlhCAANAJECAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAA0AAAITlI+p
   yxgPI5gAUvruzJpfi0ViAQA7\" />"
+</pre>
 
 Result for a non-capable browser:
 
+<pre>
   "<img alt=\"Bullet\" src=\"/images/bullet.gif?1206090639\" />"
+</pre>
 
 h2. Limits
 
@@ -39,15 +45,19 @@ Note that the FastImage gem must be installed first, check the requirements sect
 
 h4. As a Rails plugin
 
+<pre>
   ./script/plugin install git://github.com/sdsykes/fastimage_inline.git
+</pre>
 
 h4. As a Gem
 
+<pre>
   sudo gem install sdsykes-fastimage_inline -s http://gems.github.com
-
+</pre>
 
 Install the gem as above, and configure it in your environment.rb file as below:
 
+<pre>
   ...
   Rails::Initializer.run do |config|
     ...
@@ -55,12 +65,15 @@ Install the gem as above, and configure it in your environment.rb file as below:
     ...
   end
   ...
+</pre>
 
 h2. Requirements
 
 * FastImage
 
+<pre>
   sudo gem install sdsykes-fastimage -s http://gems.github.com
+</pre>
 
 h2. Documentation
 
