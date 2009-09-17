@@ -1,0 +1,77 @@
+h1. FastImage Inline
+
+h4. FastImage Inline speeds up your webpages with inline images in HTML using a data url
+
+FastImage Inline uses the data uri scheme to place images inline in your image tags, thus saving the http connections that would otherwise have to be made from the browser for each image.
+
+Some major sites already use this optimisation technique - for instance google news.  It's effective when you are using small images (less than 3k bytes), and you do not use those images more than once in a page.
+
+This plugin (or gem) adds a helper to rails that adds a method to ask for an image to be served inline inside the html if possible.
+
+h2. Browser support
+
+All modern browsers support this technique except for IE versions 7 and below.  This is still a major segment of the market of course, but as IE users migrate to IE 8 this will become less of a problem.  
+
+FastImage Inline uses a simple browser detection mechanism by looking at the user agent string.  If the browser is known to not have support, or if we do not recognise it at all, we serve a normal image tag which includes the path to the image file in the src attribute.  But if we know the browser can handle it, we send the image inline, and the browser won't need to fetch it separately.
+
+h2. Examples
+
+  inline_image_tag("bullet.gif")
+
+Result for request from a data-uri capable browser:
+
+  "<img alt=\"Bullet\" src=\"data:image/gif;base64,R0lGODlhCAANAJECAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAA0AAAITlI+p
+  yxgPI5gAUvruzJpfi0ViAQA7\" />"
+
+Result for a non-capable browser:
+
+  "<img alt=\"Bullet\" src=\"/images/bullet.gif?1206090639\" />"
+
+h2. Limits
+
+Reportedly IE8 will not handle data strings longer than 32k bytes. But it is probably unwise to inline images this big anyway.  Google news serves images that are up to about 3.5k in length, and this seems a reasonable approach.  However, FastImage Inline does not enforce any particular constraints, it is for you to decide.
+
+FastImage Inline does not cache the images it has read - so every time an image is sent it will be read from disk.  This feature may be added in a later release.
+
+h2. Installation
+
+Note that the FastImage gem must be installed first, check the requirements section below.
+
+h4. As a Rails plugin
+
+  ./script/plugin install git://github.com/sdsykes/fastimage_inline.git
+
+h4. As a Gem
+
+  sudo gem install sdsykes-fastimage_inline -s http://gems.github.com
+
+
+Install the gem as above, and configure it in your environment.rb file as below:
+
+  ...
+  Rails::Initializer.run do |config|
+    ...
+    config.gem "sdsykes-fastimage_inline", :lib=>"fastimage_inline"
+    ...
+  end
+  ...
+
+h2. Requirements
+
+* FastImage
+
+  sudo gem install sdsykes-fastimage -s http://gems.github.com
+
+h2. Documentation
+
+"http://rdoc.info/projects/sdsykes/fastimage_inline":http://rdoc.info/projects/sdsykes/fastimage_inline
+
+
+h2. Tests
+
+You'll need to 'sudo gem install fakeweb' to be able to run the tests
+
+h2. References
+
+* "http://tools.ietf.org/html/rfc2397":http://tools.ietf.org/html/rfc2397
+* "http://en.wikipedia.org/wiki/Data_URI_scheme":http://en.wikipedia.org/wiki/Data_URI_scheme

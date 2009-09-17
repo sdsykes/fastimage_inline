@@ -1,0 +1,1 @@
+require 'fastimage_inline'
