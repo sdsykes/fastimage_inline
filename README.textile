@@ -69,7 +69,7 @@ Install the gem as above, and configure it in your environment.rb file as below:
 
 h2. Requirements
 
-* FastImage
+* "http://github.com/sdsykes/fastimage":FastImage
 
 <pre>
   sudo gem install sdsykes-fastimage -s http://gems.github.com
