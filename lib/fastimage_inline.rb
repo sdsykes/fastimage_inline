@@ -1,5 +1,9 @@
 # FastImage Inline speeds up your webpages with inline images in HTML using a data uri
 #
+# FastImage Inline uses the data uri scheme to place images inline in your image tags,
+# thus saving the http connections that would otherwise have to be made from the browser
+# for each image.
+#
 # === Example
 #
 #   inline_image_tag("bullet.gif")
@@ -29,9 +33,9 @@ require 'fastimage'
 
 module FastImageInline
   # Returns a tag for the image
-  # Works just like image_tag, except that if the request being processed can handle
-  # data uris then the image itself is sent placed in the src attribute rather than just
-  # the path to it.
+  # Works just like image_tag, except that if the browser making the request being processed
+  # can handle data uris then the image itself is sent placed in the src attribute rather 
+  # than just the path to it.
   #
   def inline_image_tag(source, options = {})
     options.symbolize_keys!
@@ -51,9 +55,9 @@ module FastImageInline
   end
 
   # Returns the image path for use in a src parameter in an image tag
-  # Usage is the same as image_path, or path_to_image, except that if the request
-  # came from a capable browser the image itself is included in a data uri rather
-  # than just the path to the image
+  # Usage is the same as image_path, or path_to_image, except that if the browser
+  # making the request is capable of handling it then the image itself is included
+  # in a data uri rather than just the path to the image
   #
   def inline_image_path(source)
     has_request = respond_to?(:request)
