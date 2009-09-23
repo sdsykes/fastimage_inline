@@ -23,14 +23,14 @@ h2. Examples
 Result for request from a data-uri capable browser:
 
 <pre>
-  "<img alt=\"Bullet\" src=\"data:image/gif;base64,R0lGODlhCAANAJECAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAA0AAAITlI+p
-  yxgPI5gAUvruzJpfi0ViAQA7\" />"
+  <img alt="Bullet" src="data:image/gif;base64,R0lGODlhCAANAJECAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAA0AAAITlI+p
+  yxgPI5gAUvruzJpfi0ViAQA7" />
 </pre>
 
 Result for a non-capable browser:
 
 <pre>
-  "<img alt=\"Bullet\" src=\"/images/bullet.gif?1206090639\" />"
+  <img alt="Bullet" src="/images/bullet.gif?1206090639" />
 </pre>
 
 h2. Limits
