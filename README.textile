@@ -4,7 +4,7 @@ h4. FastImage Inline speeds up your webpages with inline images in HTML using a 
 
 FastImage Inline uses the data uri scheme to place images inline in your image tags, thus saving the http connections that would otherwise have to be made from the browser for each image.
 
-Some major sites already use this optimisation technique - for instance google news.  It's effective when you are using small images (less than 3k bytes), and you do not use those images more than once in a page.
+Some major sites already use this optimisation technique - for instance google news.  It's effective when you are using small images (less than 3k bytes), and you do not use those images more than once in a page.  Also do not use this for images that you might wish to be cached by the browser - page elements that appear in multiple pages on your site are not good candidates.
 
 This plugin (or gem) adds a helper to rails that adds a method to ask for an image to be served inline inside the html if possible.
 
@@ -82,7 +82,17 @@ h2. Documentation
 
 h2. Tests
 
-You'll need to 'sudo gem install fakeweb' to be able to run the tests
+The tests are run like this
+
+<pre>
+  $ ruby test/test.rb 
+  Loaded suite test/test
+  Started
+  .....
+  Finished in 0.46836 seconds.
+
+  5 tests, 17 assertions, 0 failures, 0 errors
+</pre>
 
 h2. References
 
