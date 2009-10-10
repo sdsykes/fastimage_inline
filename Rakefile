@@ -12,6 +12,7 @@ begin
     s.files = FileList["[A-Z]*", "{lib,test}/**/*"]
     s.add_dependency('sdsykes-fastimage', '>= 1.1.2')
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://
 gems.github.com"
