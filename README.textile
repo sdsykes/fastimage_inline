@@ -52,7 +52,7 @@ h4. As a Rails plugin
 h4. As a Gem
 
 <pre>
-  sudo gem install sdsykes-fastimage_inline -s http://gems.github.com
+  sudo gem install fastimage_inline
 </pre>
 
 Install the gem as above, and configure it in your environment.rb file as below:
