@@ -10,7 +10,7 @@ begin
     s.description = "FastImage Inline places small images inline in you HTML IMG tags code using a 'data' url."
     s.authors = ["Stephen Sykes"]
     s.files = FileList["[A-Z]*", "{lib,test}/**/*"]
-    s.add_dependency('sdsykes-fastimage', '>= 1.1.2')
+    s.add_dependency('fastimage', '>= 1.1.2')
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
