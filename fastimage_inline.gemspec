@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fastimage_inline}
-  s.version = "1.0.2"
+  s.version = "1.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Stephen Sykes"]
-  s.date = %q{2009-12-22}
+  s.date = %q{2012-06-27}
   s.description = %q{FastImage Inline places small images inline in you HTML IMG tags code using a 'data' url.}
   s.email = %q{sdsykes@gmail.com}
   s.extra_rdoc_files = [

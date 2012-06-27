@@ -17,7 +17,7 @@ require File.join(PathHere, 'config', 'environment')
 
 require File.join(PathHere, "..", "lib", 'fastimage_inline')
 
-require 'test_help'
+require 'rails/test_help'
 
 class InlineTests < ActionController::TestCase
   def setup
@@ -35,20 +35,20 @@ class InlineTests < ActionController::TestCase
     @request.env['HTTP_USER_AGENT'] = "msie 7"
     get "index"
     assert_response :success
-    assert_select "img#i1[src=?]", %r{/images/bg.png\?\d+}
+    assert_select "img#i1[src=?]", %r{/assets/bg.png}
     @request.env['HTTP_USER_AGENT'] = "msie 8"
     get "index"
     assert_response :success
-    assert_select "img#i1[src=?]", %r{/images/bg.png\?\d+}
+    assert_select "img#i1[src=?]", %r{/assets/bg.png}
   end
 
   test "inline image tags are rendered as normal tags if browser is not recognised" do
     @request.env['HTTP_USER_AGENT'] = "rails test"
     get "index"
     assert_response :success
-    assert_select "img#i2[src=?]", %r{/images/bg.png\?\d+}
-    assert_select "img#i3[src=?]", %r{/images/bullet.gif\?\d+}
-    assert_select "img#i4[src=?]", %r{/images/flag.jpg\?\d+}
+    assert_select "img#i2[src=?]", %r{/images/bg.png}
+    assert_select "img#i3[src=?]", %r{/images/bullet.gif}
+    assert_select "img#i4[src=?]", %r{/images/flag.jpg}
   end
   
   test "inline images are rendered inline for ie 8" do

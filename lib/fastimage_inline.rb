@@ -60,11 +60,14 @@ module FastImageInline
   # in a data uri rather than just the path to the image
   #
   def inline_image_path(source)
+    public_path = respond_to?(:compute_public_path) ? compute_public_path(source, 'images') : asset_paths.compute_public_path(source, 'images')
+
     has_request = respond_to?(:request)
+
     if has_request && inline_capable_browser?
-      inline_image_data(compute_public_path(source, 'images'))
+      inline_image_data(public_path)
     else
-      compute_public_path(source, 'images')
+      public_path
     end
   end
   
