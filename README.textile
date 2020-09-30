@@ -1,4 +1,4 @@
-h1. FastImage Inline
+h1. The FastImage Inline
 
 h4. FastImage Inline speeds up your webpages with inline images in HTML using a data url
 
